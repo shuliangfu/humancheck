@@ -1,4 +1,5 @@
 {
+  "name": "@dreamer/humancheck",
   "version": "1.0.0-beta.1",
   "description": "人机验证库，支持图形验证码、数学验证码、滑块验证码、TOTP、短信/邮箱验证码、第三方服务集成",
   "license": "MIT",
