@@ -69,7 +69,10 @@ export class RecaptchaClient {
   /** 配置选项 */
   private options:
     & Required<
-      Pick<RecaptchaClientOptions, "version" | "theme" | "size" | "action" | "hl">
+      Pick<
+        RecaptchaClientOptions,
+        "version" | "theme" | "size" | "action" | "hl"
+      >
     >
     & RecaptchaClientOptions;
 

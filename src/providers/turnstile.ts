@@ -26,6 +26,7 @@
  * ```
  */
 
+import { $tr } from "../i18n.ts";
 import type { TurnstileConfig, VerifyResult } from "../types.ts";
 
 /** Turnstile siteverify API URL */
@@ -85,7 +86,7 @@ export class TurnstileProvider {
    */
   constructor(config: TurnstileConfig) {
     if (!config.secretKey) {
-      throw new Error("Turnstile secretKey 是必需的");
+      throw new Error($tr("humancheck.turnstile.secretKeyRequired"));
     }
     this.config = config;
   }

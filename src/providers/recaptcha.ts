@@ -38,11 +38,11 @@
  * ```
  */
 
+import { $tr } from "../i18n.ts";
 import type { RecaptchaConfig, VerifyResult } from "../types.ts";
 
 /** reCAPTCHA siteverify API URL */
-const RECAPTCHA_VERIFY_URL =
-  "https://www.google.com/recaptcha/api/siteverify";
+const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 
 /**
  * reCAPTCHA 验证选项
@@ -98,7 +98,7 @@ export class RecaptchaProvider {
    */
   constructor(config: RecaptchaConfig) {
     if (!config.secretKey) {
-      throw new Error("reCAPTCHA secretKey 是必需的");
+      throw new Error($tr("humancheck.recaptcha.secretKeyRequired"));
     }
     this.config = {
       ...config,

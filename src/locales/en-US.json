@@ -1,0 +1,15 @@
+{
+  "humancheck": {
+    "core": {
+      "challengeTypeNotRegistered": "Challenge type \"{type}\" not registered",
+      "logRegisterType": "[HumanCheck] Register challenge type: {type}",
+      "logCreateChallenge": "[HumanCheck] Create challenge: id={id}, type={type}"
+    },
+    "recaptcha": {
+      "secretKeyRequired": "reCAPTCHA secretKey is required"
+    },
+    "turnstile": {
+      "secretKeyRequired": "Turnstile secretKey is required"
+    }
+  }
+}

@@ -29,6 +29,7 @@
  */
 
 import { MemoryStore } from "./stores/memory.ts";
+import { $tr } from "./i18n.ts";
 import type {
   Challenge,
   ChallengeCreateResult,
@@ -112,7 +113,7 @@ export class HumanCheck {
     this.challenges.set(type, challenge);
 
     if (this.options.debug) {
-      console.log(`[HumanCheck] 注册挑战类型: ${type}`);
+      console.log($tr("humancheck.core.logRegisterType", { type }));
     }
   }
 
@@ -185,7 +186,11 @@ export class HumanCheck {
       // 通过类型名称获取
       const registered = this.challenges.get(typeOrChallenge);
       if (!registered) {
-        throw new Error(`挑战类型 "${typeOrChallenge}" 未注册`);
+        throw new Error(
+          $tr("humancheck.core.challengeTypeNotRegistered", {
+            type: typeOrChallenge,
+          }),
+        );
       }
       challenge = registered as Challenge<TData, unknown>;
     } else {
@@ -221,7 +226,9 @@ export class HumanCheck {
 
     // 调试日志
     if (this.options.debug) {
-      console.log(`[HumanCheck] 创建挑战: id=${id}, type=${challenge.type}`);
+      console.log(
+        $tr("humancheck.core.logCreateChallenge", { id, type: challenge.type }),
+      );
     }
 
     return {

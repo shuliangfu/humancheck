@@ -1,0 +1,15 @@
+{
+  "humancheck": {
+    "core": {
+      "challengeTypeNotRegistered": "挑战类型 \"{type}\" 未注册",
+      "logRegisterType": "[HumanCheck] 注册挑战类型: {type}",
+      "logCreateChallenge": "[HumanCheck] 创建挑战: id={id}, type={type}"
+    },
+    "recaptcha": {
+      "secretKeyRequired": "reCAPTCHA secretKey 是必需的"
+    },
+    "turnstile": {
+      "secretKeyRequired": "Turnstile secretKey 是必需的"
+    }
+  }
+}
