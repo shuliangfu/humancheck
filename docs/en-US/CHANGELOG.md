@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.0] - 2026-07-23
+
+### Added
+
+- **Node.js 22+ compatibility** via @dreamer/runtime-adapter v1.2.2 (IS_NODE +
+  cross-runtime getEnv/crypto/fetch APIs). No src changes needed — all code
+  already uses cross-runtime APIs (crypto.subtle, crypto.randomUUID,
+  crypto.getRandomValues, btoa, fetch, TextEncoder, setInterval/setTimeout).
+- **test:node** script (`tsx --test --test-force-exit tests/*.test.ts`) for
+  Node.js 22+ test runner.
+- **CI workflow** (9 jobs): 3 Deno v2.9 + 3 Bun + 3 Node 22 (Linux/macOS/Windows).
+- **tsconfig.json** for Node tsx loader.
+- **minimumDependencyAge: 0** in deno.json for same-day JSR dependency resolution.
+
+### Changed
+
+- Upgraded dependencies: @dreamer/i18n ^1.1.2, @dreamer/runtime-adapter ^1.2.2,
+  @dreamer/test ^1.2.3.
+- `engines.node` set to `>=22` in package.json.
+
+### Fixed
+
+- providers.test.ts: call `setHumancheckLocale("zh-CN")` to force Chinese locale,
+  fixing CI English locale mismatch on i18n error message assertions.
+
+---
+
 ## [1.0.0] - 2026-02-19
 
 Initial stable release. Full human verification toolkit for Deno and Bun.

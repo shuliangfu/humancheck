@@ -7,6 +7,33 @@
 
 ---
 
+## [1.1.0] - 2026-07-23
+
+### 新增
+
+- **Node.js 22+ 兼容**：通过 @dreamer/runtime-adapter v1.2.2（IS_NODE + 跨运行时
+  getEnv/crypto/fetch API）实现。src 无需改动——全部代码已使用跨运行时 API
+  （crypto.subtle、crypto.randomUUID、crypto.getRandomValues、btoa、fetch、
+  TextEncoder、setInterval/setTimeout）。
+- **test:node** 脚本（`tsx --test --test-force-exit tests/*.test.ts`），适配
+  Node.js 22+ 测试运行器。
+- **CI 工作流**（9 jobs）：3 Deno v2.9 + 3 Bun + 3 Node 22（Linux/macOS/Windows）。
+- **tsconfig.json**：Node tsx 加载器配置。
+- **minimumDependencyAge: 0**：deno.json 中新增，支持当天发布的 JSR 依赖解析。
+
+### 变更
+
+- 升级依赖：@dreamer/i18n ^1.1.2、@dreamer/runtime-adapter ^1.2.2、
+  @dreamer/test ^1.2.3。
+- package.json 中 `engines.node` 设为 `>=22`。
+
+### 修复
+
+- providers.test.ts：调用 `setHumancheckLocale("zh-CN")` 强制中文 locale，修复
+  CI 英文 locale 下 i18n 错误文案断言不匹配的问题。
+
+---
+
 ## [1.0.0] - 2026-02-19
 
 首个稳定版本。为 Deno 与 Bun 提供完整的人机验证能力。

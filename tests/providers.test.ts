@@ -9,6 +9,10 @@ import {
   RecaptchaProvider,
   TurnstileProvider,
 } from "../src/mod.ts";
+import { setHumancheckLocale } from "../src/i18n.ts";
+
+// CI 默认英文 locale，i18n 错误文案会返回英文导致断言不匹配，强制中文
+setHumancheckLocale("zh-CN");
 
 describe("RecaptchaProvider", () => {
   describe("构造函数", () => {

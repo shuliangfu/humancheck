@@ -4,24 +4,30 @@
 
 ## Overview
 
-| Item             | Value                      |
-| ---------------- | -------------------------- |
-| Package version  | 1.0.0                      |
-| Test framework   | @dreamer/test@^1.0.11      |
-| Test date        | 2026-02-19                 |
-| Test environment | Deno / Bun (both runtimes) |
+| Item             | Value                                              |
+| ---------------- | -------------------------------------------------- |
+| Package version  | 1.1.0                                              |
+| Test framework   | @dreamer/test ^1.2.3, Deno built-in test, Bun test, Node tsx --test |
+| Test date        | 2026-07-23                                         |
+| Test environment | Deno 2.9+ / Bun 1.3+ / Node.js 22+                 |
 
 ## Test Results
 
 ### Summary
 
-| Metric         | Value                    |
-| -------------- | ------------------------ |
-| Total tests    | 109                      |
-| Passed         | 109                      |
-| Failed         | 0                        |
-| Pass rate      | 100%                     |
-| Execution time | ~2s (Deno) / ~0.2s (Bun) |
+| Metric         | Value                                       |
+| -------------- | ------------------------------------------- |
+| Total tests    | 116 (Deno) / 109 (Bun) / 109 (Node)         |
+| Passed         | 116 / 109 / 109                             |
+| Failed         | 0                                           |
+| Pass rate      | 100%                                        |
+| Execution time | ~0.4s (Deno) / ~0.1s (Bun) / ~0.2s (Node)   |
+
+### Three-runtime summary
+
+All tests pass across three runtimes. Deno counts 116 (7 extra `@dreamer/test
+cleanup browsers` tests injected by the Deno runner); Bun and Node count 109
+each. No browser/Chromium tests — all 7 test files are pure server-side.
 
 ### Per-file summary
 
@@ -408,7 +414,8 @@
 
 ## Conclusion
 
-@dreamer/humancheck has passed all 109 tests with 100% pass rate. The package
+@dreamer/humancheck has passed all 109 tests (116 on Deno including runner-injected
+cleanup) with 100% pass rate across Deno, Bun, and Node.js 22+. The package
 provides:
 
 - **Basic verification**: Image captcha, math captcha
